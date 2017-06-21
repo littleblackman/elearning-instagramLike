@@ -37,7 +37,6 @@ nav .material-icons { font-size: 2em; color: gray}
 
 
 /* flux images */
-
 #flux { width: 800px; margin: 0 auto; text-align: center;  display: flex; flex-direction: column; }
 #flux .content-image { margin-top: 100px; margin-bottom: 100px}
 figcaption {
