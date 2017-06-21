@@ -28,8 +28,6 @@ nav {
     }
 #input-search { padding: 10px; border-radius: 8px; border-color: 1px solid grey; }
 
-
-/* nav var */
 .nav-item { width: 30%}
 nav .material-icons { font-size: 2em; color: gray}
 .end-row { text-align: right}
