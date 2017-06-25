@@ -40,9 +40,12 @@
                     <span class="author">
                         eyesofchildrenaroundtheworld
                     </span>
-                    Photo by @miweb_photography
+                    Photo by @miweb_photography<br/>
                 </figcaption>
                 <img src="insta1.jpg"/>
+                <br/>
+                Photo ajoutée le 17/06/2017
+
             </figure>
 
             <figure>
@@ -50,9 +53,12 @@
                     <span class="author">
                         eyesofchildrenaroundtheworld
                     </span>
-                    Photo by @geosmin_photography
+                    Photo by @geosmin_photography<br/>
                 </figcaption>
                 <img src="insta2.jpg"/>
+                <br/>
+                Photo ajoutée le 05/06/2017
+
             </figure>
 
         </section>
