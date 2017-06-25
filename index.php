@@ -5,6 +5,7 @@
 
     include_once('Model/InstapicClass.php');
 
+    /**** Création des données *****/
     $pic1 = new Instapic();
     $pic1->setAuthor("eyesofchildrenaroundtheworld");
     $pic1->setDescription('Photo by @miweb_photography');
@@ -18,10 +19,10 @@
     $pic2->setUrl("insta2.jpg");
     $pic2->setCreatedAt("06/06/2013");
 
-
     $pics = array($pic1, $pic2);
 
-;?>
+?>
+<!--- PRESENTATION DES DONNÉES --->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
