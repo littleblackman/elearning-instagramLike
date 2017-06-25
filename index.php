@@ -1,3 +1,27 @@
+<?php
+    // show errors if not in php.ini
+    ini_set('display_errors','on');
+    error_reporting(E_ALL);
+
+    include_once('Model/InstapicClass.php');
+
+    $pic1 = new Instapic();
+    $pic1->setAuthor("eyesofchildrenaroundtheworld");
+    $pic1->setDescription('Photo by @miweb_photography');
+    $pic1->setUrl("insta1.jpg");
+    $pic1->setCreatedAt("17/06/2017");
+
+
+    $pic2 = new Instapic();
+    $pic2->setAuthor("bobthesponge");
+    $pic2->setDescription('a real and strange photo');
+    $pic2->setUrl("insta2.jpg");
+    $pic2->setCreatedAt("06/06/2013");
+
+
+    $pics = array($pic1, $pic2);
+
+;?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -35,32 +59,19 @@
 
     <div id="container">
         <section id="flux">
-            <figure class="content-image">
-                <figcaption>
+            <?php foreach ($pics as $pic):?>
+                <figure class="content-image">
+                    <figcaption>
                     <span class="author">
-                        eyesofchildrenaroundtheworld
+                        <?= $pic->getAuthor();?>
                     </span>
-                    Photo by @miweb_photography<br/>
-                </figcaption>
-                <img src="insta1.jpg"/>
-                <br/>
-                Photo ajoutée le 17/06/2017
-
-            </figure>
-
-            <figure>
-                <figcaption>
-                    <span class="author">
-                        eyesofchildrenaroundtheworld
-                    </span>
-                    Photo by @geosmin_photography<br/>
-                </figcaption>
-                <img src="insta2.jpg"/>
-                <br/>
-                Photo ajoutée le 05/06/2017
-
-            </figure>
-
+                        <?= $pic->getDescription();?><br/>
+                    </figcaption>
+                    <img src="<?= $pic->getUrl();?>"/>
+                    <br/>
+                    Photo ajoutée le <?= $pic->getCreatedAt();?>
+                </figure>
+            <?php endforeach;?>
         </section>
     </div>
 
