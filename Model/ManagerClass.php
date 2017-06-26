@@ -1,5 +1,8 @@
 <?php
 
+include_once('InstapicClass.php');
+
+
 class Manager
 {
 
@@ -7,6 +10,7 @@ class Manager
 
     public function createTestPics()
     {
+        
         $pic1 = new Instapic();
         $pic1->setAuthor("eyesofchildrenaroundtheworld");
         $pic1->setDescription('Photo by @miweb_photography');
