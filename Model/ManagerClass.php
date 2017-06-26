@@ -2,7 +2,12 @@
 
 include_once('InstapicClass.php');
 
-
+/**
+ * use only to create some InstaPic Object
+ * as a big factory (or a manager)
+ *
+ * Class Manager
+ */
 class Manager
 {
     /**
@@ -81,9 +86,5 @@ class Manager
     {
         $this->instaCompte = $string;
     }
-
-
-
-
-
+    
 }
