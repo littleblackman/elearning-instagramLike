@@ -3,6 +3,8 @@
 class Manager
 {
 
+    private $instaCompte = "littlebl6ckm6n";
+
     public function createTestPics()
     {
         $pic1 = new Instapic();
@@ -23,5 +25,16 @@ class Manager
         return $pics;
 
     }
+
+
+    public function retriveInfofromInstagram()
+    {
+        $instaResults= file_get_contents('https://www.instagram.com/'.$this->compteInstagram.'/media/');
+        $instaResult = json_decode($instaResults, true);
+
+        echo '<pre>'; print_($instaResult);
+
+    }
+
 
 }
