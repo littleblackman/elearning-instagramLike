@@ -73,6 +73,18 @@ class Instapic
     }
 
     /**
+     * return a short version of description
+     * have a default lenghth value
+     *
+     * @param int $length
+     * @return bool|string
+     */
+    public function getShortDescription($length = 100)
+    {
+        return substr($this->getDescription(), 0, $length);
+    }
+
+    /**
      * set the url value
      *
      * @param $url
@@ -97,7 +109,7 @@ class Instapic
     /**
      * set the created_at value
      *
-     * @param $date
+     * @param timestamp
      * @return $this
      */
     public function setCreatedAt($date)
@@ -109,11 +121,12 @@ class Instapic
     /**
      * return the date of created
      *
-     * @return date
+     * @return string
      */
     public function getCreatedAt()
     {
-        return $this->created_at;
+        $date = date('d/m/Y', $this->created_at);
+        return $date;
     }
 
 

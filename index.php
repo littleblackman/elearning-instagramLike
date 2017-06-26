@@ -7,7 +7,8 @@
 
     /**** Création des données *****/
     $manager = new Manager();
-    $pics = $manager->createTestPics();
+    $manager->setInstaCompte("moodygrams");
+    $pics = $manager->retrievePhotosfromInstagram();
 
 ?>
 <!--- PRESENTATION DES DONNÉES --->
@@ -54,7 +55,7 @@
                     <span class="author">
                         <?= $pic->getAuthor();?>
                     </span>
-                        <?= $pic->getDescription();?><br/>
+                        <?= $pic->getShortDescription();?><br/>
                     </figcaption>
                     <img src="<?= $pic->getUrl();?>"/>
                     <br/>

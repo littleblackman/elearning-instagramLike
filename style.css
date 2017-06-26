@@ -41,9 +41,10 @@ figcaption {
                 font-family: Arial;
                 text-align: left;
                 margin: 0 auto;
-                width: 550px;
                 padding: 25px;
                 min-height: 40px;
-                border: 1px #E6E6E6 solid
-            }
+                border: 1px #E6E6E6 solid;
+                width: 590px;
+
+}
 .author { font-weight: bold}
