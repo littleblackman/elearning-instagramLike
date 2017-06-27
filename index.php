@@ -7,7 +7,7 @@
 
     /**** Création des données *****/
     $manager = new Manager();
-    $manager->setInstaCompte("moodygrams");
+    $manager->setInstaCompte("mpbcom");
     $pics = $manager->retrievePhotosfromInstagram();
 
 ?>

@@ -86,5 +86,5 @@ class Manager
     {
         $this->instaCompte = $string;
     }
-    
+
 }
