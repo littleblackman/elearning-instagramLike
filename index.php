@@ -7,8 +7,8 @@
 
     /**** Création des données *****/
     $manager = new Manager();
-   // $pics = $manager->retrievePhotosfromInstagram();
-    $pics = $manager->retrievePhotosFromFlicker();
+    $pics = $manager->retrievePhotosfromInstagram();
+   // $pics = $manager->retrievePhotosFromFlicker();
 
 ?>
 

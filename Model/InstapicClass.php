@@ -29,6 +29,41 @@ class Instapic
 
 
     /**
+     * hydrate function to setter all attributes
+     *
+     * @param $values
+     * @return $this
+     */
+    public function hydrate($values)
+    {
+
+        foreach($values as $key => $value)
+        {
+
+            // couper la string avec les underscores
+            $elements = explode('_', $key);
+            $new_key = '';
+            // concatener tous les elements en majuscule
+            foreach ($elements as $el)
+            {
+                $new_key .= ucfirst($el);
+            }
+
+            // création de la méthode
+            $method = "set".$new_key;
+
+            // appel de la méthode si elle est appelable en variable
+            if (is_callable(array($this, $method))) {
+                $this->$method($value);
+            }
+
+        }
+
+        return $this;
+    }
+
+
+    /**
      * set the author
      * @param $author
      * @return $this

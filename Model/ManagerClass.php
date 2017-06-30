@@ -66,16 +66,13 @@ class Manager
 
         foreach ($instaResult['items'] as $element) {
 
-                $url          = $element['images']['standard_resolution']['url'];
-                $author       = $element['caption']['from']['full_name'];
-                $description  = $element['caption']['text'];
-                $created_at   = (int)$element['created_time'];
+                $values['url']         = $element['images']['standard_resolution']['url'];
+                $values['author']      = $element['caption']['from']['full_name'];
+                $values['description'] = $element['caption']['text'];
+                $values['created_at']  = (int)$element['created_time'];
 
                 $pic = new Instapic();
-                $pic->setAuthor($author);
-                $pic->setDescription($description);
-                $pic->setUrl($url);
-                $pic->setCreatedAt($created_at);
+                $pic->hydrate($values);
 
                 $pics[] = $pic;
 
@@ -135,11 +132,7 @@ class Manager
 
         foreach($photos as $photo) {
             $pic = new Instapic();
-            $pic->setAuthor($photo['author']);
-            $pic->setDescription($photo['description']);
-            $pic->setUrl($photo['url']);
-            $pic->setCreatedAt($photo['created_at']);
-
+            $pic->hydrate($photo);
             $pics[] = $pic;
         }
 
