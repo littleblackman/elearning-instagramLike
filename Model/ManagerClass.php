@@ -17,6 +17,14 @@ class Manager
      */
     private $instaCompte = "littlebl6ckm6n";
 
+
+    /**
+     * the url ton connect to XML API flicker
+     *
+     * @var string $url
+     */
+    private $flickerUrl = "https://api.flickr.com/services/feeds/photos_public.gne";
+
     /**
      * test picture
      *
@@ -61,7 +69,7 @@ class Manager
                 $url          = $element['images']['standard_resolution']['url'];
                 $author       = $element['caption']['from']['full_name'];
                 $description  = $element['caption']['text'];
-                $created_at   = $element['created_time'];
+                $created_at   = (int)$element['created_time'];
 
                 $pic = new Instapic();
                 $pic->setAuthor($author);
@@ -86,5 +94,58 @@ class Manager
     {
         $this->instaCompte = $string;
     }
+
+
+    /**
+     * get the flickerfeed
+     * return an array of array og photos
+     *
+     * @return array
+     */
+    public function getFlickerFeed()
+    {
+        $flickerResults = simplexml_load_file($this->flickerUrl);
+
+        $photos = array();
+
+        foreach($flickerResults->entry as $element)
+        {
+
+            $photo['author']      = $element->author->name->__toString();
+            $photo['url']         = $element->link[1]['href']->__toString();
+            $photo['description'] = null;
+            $photo['created_at']  = $element->published->__toString();
+
+            $photos[] = $photo;
+
+        }
+
+        return $photos;
+
+    }
+
+    /**
+     * create pics from a flicker feed;
+     *
+     * @return array
+     */
+    public function retrievePhotosFromFlicker()
+    {
+        $photos = $this->getFlickerFeed();
+
+        foreach($photos as $photo) {
+            $pic = new Instapic();
+            $pic->setAuthor($photo['author']);
+            $pic->setDescription($photo['description']);
+            $pic->setUrl($photo['url']);
+            $pic->setCreatedAt($photo['created_at']);
+
+            $pics[] = $pic;
+        }
+
+        return $pics;
+
+    }
+
 
 }

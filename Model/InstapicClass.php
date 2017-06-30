@@ -114,7 +114,13 @@ class Instapic
      */
     public function setCreatedAt($date)
     {
-        $this->created_at = $date;
+        if(is_int($date))
+        {
+            $value = $date;
+        } else {
+            $value = null;
+        }
+        $this->created_at = $value;
         return $this;
     }
 
@@ -125,9 +131,9 @@ class Instapic
      */
     public function getCreatedAt()
     {
+        if(!$this->created_at) return null;
         $date = date('d/m/Y', $this->created_at);
         return $date;
     }
-
 
 }

@@ -7,10 +7,11 @@
 
     /**** Création des données *****/
     $manager = new Manager();
-    $manager->setInstaCompte("mpbcom");
-    $pics = $manager->retrievePhotosfromInstagram();
+   // $pics = $manager->retrievePhotosfromInstagram();
+    $pics = $manager->retrievePhotosFromFlicker();
 
 ?>
+
 <!--- PRESENTATION DES DONNÉES --->
 <!DOCTYPE html>
 <html lang="fr">
@@ -59,7 +60,7 @@
                     </figcaption>
                     <img src="<?= $pic->getUrl();?>"/>
                     <br/>
-                    Photo ajoutée le <?= $pic->getCreatedAt();?>
+                    <?php if($pic->getCreatedAt()) echo "Photo ajoutée le ".$pic->getCreatedAt();?>
                 </figure>
             <?php endforeach;?>
         </section>
